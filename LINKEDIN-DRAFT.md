@@ -12,7 +12,9 @@ The local planning suite adds 18 deterministic checks around phone normalization
 
 That last test exposes the biggest limitation: replaying the same quote starts another cadence. This standalone version has no idempotency key. It also treats every SMS response as “stop and let a human handle it” rather than trying to guess whether the customer accepted, declined, delayed, or opted out.
 
-I am publishing the sanitized workflow, setup guide, sample webhook, diagram, test harness, proof log, and limitations for free.
+I published the sanitized workflow, setup guide, sample webhook, diagram, test harness, proof log, and limitations for free:
+
+https://github.com/mikematthewsai/n8n-quote-chaser-sms
 
 If you automate quote follow-up, what event is authoritative enough to stop the sequence?
 
@@ -23,6 +25,6 @@ If you automate quote follow-up, what event is authoritative enough to stop the 
 - **Follow-up post:** “A reply is a stop signal, not necessarily an intent classification.”
 - **Next release:** STOP, START, and HELP handler, only after this release ships or is explicitly paused.
 
-## Final edit before posting
+## Publication status
 
-Change “I am publishing” to “I published” only after the repository is public. Add the GitHub URL.
+The repository is public and the post copy above contains the final URL. Post manually from Mike's known browser.
