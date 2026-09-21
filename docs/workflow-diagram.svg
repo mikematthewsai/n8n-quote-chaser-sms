@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Quote chaser that stops when the customer replies</title>
+  <desc id="desc">A workflow diagram showing a quote webhook, validation, three wait-check-nudge rounds, and owner handoff when a reply is detected.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#07111f"/><stop offset="1" stop-color="#15233b"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#020617" flood-opacity=".36"/></filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0 0L12 6 0 12z" fill="#7dd3fc"/></marker>
+    <style>
+      .label{font-family:Inter,Segoe UI,Arial,sans-serif;fill:#e5eef9}.muted{font-family:Inter,Segoe UI,Arial,sans-serif;fill:#9fb3c8}
+      .box{fill:#132943;stroke:#3b82a6;stroke-width:2}.accent{fill:#0f3b49;stroke:#2dd4bf;stroke-width:2}.decision{fill:#352949;stroke:#c084fc;stroke-width:2}.stop{fill:#3f2933;stroke:#fb7185;stroke-width:2}
+      .edge{fill:none;stroke:#7dd3fc;stroke-width:3;marker-end:url(#arrow)}.branch{fill:none;stroke:#a7b7ca;stroke-width:2.5;stroke-dasharray:8 8;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/><circle cx="1460" cy="80" r="220" fill="#0ea5e9" opacity=".08"/><circle cx="110" cy="850" r="250" fill="#14b8a6" opacity=".06"/>
+  <text x="90" y="90" class="label" font-size="44" font-weight="700">Quote follow-up that knows when to stop</text>
+  <text x="90" y="132" class="muted" font-size="24">Check the conversation before every nudge · hand replies back to a person</text>
+
+  <g filter="url(#shadow)">
+    <rect x="90" y="230" width="220" height="110" rx="22" class="box"/><text x="200" y="275" class="label" font-size="23" text-anchor="middle" font-weight="650">Quote event</text><text x="200" y="307" class="muted" font-size="19" text-anchor="middle">webhook</text>
+    <rect x="380" y="230" width="250" height="110" rx="22" class="accent"/><text x="505" y="275" class="label" font-size="23" text-anchor="middle" font-weight="650">Validate + plan</text><text x="505" y="307" class="muted" font-size="19" text-anchor="middle">three follow-ups</text>
+    <polygon points="765,222 900,285 765,348 630,285" class="decision"/><text x="765" y="278" class="label" font-size="21" text-anchor="middle" font-weight="650">Usable</text><text x="765" y="306" class="label" font-size="21" text-anchor="middle" font-weight="650">phone?</text>
+    <rect x="1010" y="185" width="260" height="110" rx="22" class="accent"/><text x="1140" y="230" class="label" font-size="22" text-anchor="middle" font-weight="650">Return plan</text><text x="1140" y="262" class="muted" font-size="19" text-anchor="middle">immediately</text>
+    <rect x="1010" y="350" width="260" height="110" rx="22" class="stop"/><text x="1140" y="395" class="label" font-size="22" text-anchor="middle" font-weight="650">Stop safely</text><text x="1140" y="427" class="muted" font-size="19" text-anchor="middle">no cadence started</text>
+  </g>
+  <path d="M310 285H380" class="edge"/><path d="M630 285H630" class="edge"/><path d="M900 270C950 270 960 240 1010 240" class="edge"/><path d="M815 333C870 395 930 405 1010 405" class="branch"/><text x="942" y="247" class="muted" font-size="18">always</text><text x="920" y="390" class="muted" font-size="18">invalid</text>
+
+  <g filter="url(#shadow)">
+    <rect x="90" y="570" width="280" height="130" rx="24" class="box"/><text x="230" y="616" class="label" font-size="22" text-anchor="middle" font-weight="650">Wait</text><text x="230" y="650" class="muted" font-size="19" text-anchor="middle">until next nudge</text><text x="230" y="678" class="muted" font-size="18" text-anchor="middle">10am for day-scale waits</text>
+    <rect x="450" y="570" width="300" height="130" rx="24" class="accent"/><text x="600" y="616" class="label" font-size="22" text-anchor="middle" font-weight="650">Check Twilio</text><text x="600" y="650" class="muted" font-size="19" text-anchor="middle">inbound SMS after</text><text x="600" y="678" class="muted" font-size="18" text-anchor="middle">this chase started</text>
+    <polygon points="900,565 1035,635 900,705 765,635" class="decision"/><text x="900" y="628" class="label" font-size="21" text-anchor="middle" font-weight="650">Customer</text><text x="900" y="657" class="label" font-size="21" text-anchor="middle" font-weight="650">replied?</text>
+    <rect x="1120" y="520" width="350" height="120" rx="24" class="stop"/><text x="1295" y="565" class="label" font-size="22" text-anchor="middle" font-weight="650">Yes · notify owner</text><text x="1295" y="599" class="muted" font-size="19" text-anchor="middle">stop the cadence immediately</text>
+    <rect x="1120" y="685" width="350" height="120" rx="24" class="box"/><text x="1295" y="730" class="label" font-size="22" text-anchor="middle" font-weight="650">No · send nudge</text><text x="1295" y="764" class="muted" font-size="19" text-anchor="middle">repeat up to three rounds</text>
+  </g>
+  <path d="M765 348C765 475 230 470 230 570" class="edge"/><path d="M370 635H450" class="edge"/><path d="M750 635H765" class="edge"/><path d="M995 594C1045 570 1075 570 1120 575" class="edge"/><path d="M995 675C1045 720 1070 745 1120 745" class="branch"/>
+  <text x="1050" y="555" class="muted" font-size="18">yes</text><text x="1050" y="723" class="muted" font-size="18">no</text>
+  <rect x="90" y="842" width="1420" height="2" fill="#2c4b68"/><text x="90" y="880" class="muted" font-size="20">Known boundary: duplicate quote events start duplicate cadences. This standalone version has no idempotency guard.</text>
+</svg>
